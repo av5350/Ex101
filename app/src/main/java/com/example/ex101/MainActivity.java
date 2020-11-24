@@ -1,11 +1,15 @@
 package com.example.ex101;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -148,5 +152,35 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog ad = msgDialog.create();
         ad.show();
+    }
+
+    /**
+     * Create the options menu
+     *
+     * @param menu the menu
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    /**
+     * go to credits activity if it was clicked at the menu
+     *
+     * @param item the item in menu that was clicked
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        // go to credits activity
+        if (id == R.id.creadits)
+        {
+            Intent si = new Intent(this, CreaditsActivity.class);
+            startActivity(si);
+        }
+
+        return true;
     }
 }
