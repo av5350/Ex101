@@ -17,6 +17,12 @@ import java.util.Random;
 
 /**
  * The type Main activity.
+ *
+ *  @author		Itey Weintraub <av5350@bs.amalnet.k12.il>
+ *  @version	1
+ *  @since		25/11/2020
+ *  short description:
+ *      This activity let the user try 5 Alert Dialog's situations.
  */
 public class MainActivity extends AppCompatActivity {
     AlertDialog.Builder msgDialog;
@@ -42,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         msgDialog = new AlertDialog.Builder(this);
 
         msgDialog.setTitle("Error!");
-        msgDialog.setMessage("Hi there!");
+        msgDialog.setMessage("Its Part 1 :)");
 
         AlertDialog ad = msgDialog.create();
         ad.show();
@@ -56,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
     public void startIconDialog(View view) {
         msgDialog = new AlertDialog.Builder(this);
 
-        msgDialog.setMessage("Hi there!");
         msgDialog.setTitle("There is an error!");
+        msgDialog.setMessage("Its Part 2 :)");
         msgDialog.setIcon(R.drawable.close);
 
         AlertDialog ad = msgDialog.create();
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Part 3 - open alert dialog with 1 messag, icon
+     * Part 3 - open alert dialog with 1 message, icon
      *          and a closer dialog button
      *
      * @param view the view
@@ -73,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
     public void startBtnDialog(View view) {
         msgDialog = new AlertDialog.Builder(this);
 
-        msgDialog.setMessage("Hi there!");
         msgDialog.setTitle("There is an error!");
+        msgDialog.setMessage("Its Part 3 :)");
         msgDialog.setIcon(R.drawable.close);
-        msgDialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+        msgDialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                // Close the dialog
                 dialog.cancel();
             }
         });
@@ -161,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
      * Create the options menu
      *
      * @param menu the menu
+     * @return ture if success
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -172,13 +180,14 @@ public class MainActivity extends AppCompatActivity {
      * go to credits activity if it was clicked at the menu
      *
      * @param item the item in menu that was clicked
+     * @return true - if it success
      */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+        String title = (String) item.getTitle();
 
-        // go to credits activity
-        if (id == R.id.creadits)
+        // go to credits activity if clicked
+        if (title.equals("Creadits"))
         {
             Intent si = new Intent(this, CreaditsActivity.class);
             startActivity(si);

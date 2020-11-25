@@ -10,7 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 /**
- * The type Creadits activity.
+ * The type Credits activity.
+ * @author Itey Weintraub <av5350@bs.amalnet.k12.il>
+ * @version	1
+ * @since		25/11/2020
+ * short description:
+ *      This activity shows the credits of the app :)
  */
 public class CreaditsActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class CreaditsActivity extends AppCompatActivity {
      * Create the options menu
      *
      * @param menu the menu
+     * @return ture if success
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,13 +41,14 @@ public class CreaditsActivity extends AppCompatActivity {
      * go to main activity if it was clicked at the menu
      *
      * @param item the item in menu that was clicked
+     *  @return true - if it success
      */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+        String title = (String) item.getTitle();
 
         // go to main activity
-        if (id == R.id.home)
+        if (title.equals("Home"))
         {
             finish();
         }
