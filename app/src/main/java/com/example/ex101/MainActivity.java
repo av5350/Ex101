@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void startMsgDialog(View view) {
         msgDialog = new AlertDialog.Builder(this);
 
+        msgDialog.setTitle("Error!");
         msgDialog.setMessage("Hi there!");
 
         AlertDialog ad = msgDialog.create();
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     public void startTwoBtnDialog(View view) {
         msgDialog = new AlertDialog.Builder(this);
 
+        msgDialog.setTitle("Background change");
         msgDialog.setMessage("You can change your background color!");
         msgDialog.setPositiveButton("Change", new DialogInterface.OnClickListener() {
             @Override
@@ -127,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public void startThreeBtnDialog(View view) {
         msgDialog = new AlertDialog.Builder(this);
 
+        msgDialog.setTitle("Background change");
         msgDialog.setMessage("You can change your background color!");
         msgDialog.setPositiveButton("Change", new DialogInterface.OnClickListener() {
             @Override
